@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2015 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,15 +21,22 @@
     android:layout_width="match_parent"
     android:fitsSystemWindows="true">
 
-    <include layout="@layout/include_list_viewpager"/>
+    <!--第一个子元素表示内容-->
+    <include layout="@layout/include_list_viewpager" />
 
+
+    <!-- app:headerLayout 指定title布局
+         app:menu="@menu/drawer_view" 指定操作item
+         简化listView
+     -->
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
+        android:layout_gravity="end"
+        android:fitsSystemWindows="false"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/drawer_view"/>
+        app:menu="@menu/drawer_view"
+        />
 
 </android.support.v4.widget.DrawerLayout>

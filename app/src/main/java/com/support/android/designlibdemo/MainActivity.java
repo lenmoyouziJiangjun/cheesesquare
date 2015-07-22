@@ -16,6 +16,7 @@
 
 package com.support.android.designlibdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -33,9 +34,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +43,7 @@ import java.util.List;
  */
 public class MainActivity extends AppCompatActivity {
 
+    //找到控件
     private DrawerLayout mDrawerLayout;
 
     @Override
@@ -71,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
             setupViewPager(viewPager);
         }
 
+        /**
+         * 类似toast，是toast的升级
+         */
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +96,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
+                //end表示显示右边侧滑栏，start表示左边侧滑栏
+                mDrawerLayout.openDrawer(GravityCompat.END);
+                //mDrawerLayout.openDrawer(View v); 默认打开那个View
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -111,13 +115,20 @@ public class MainActivity extends AppCompatActivity {
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                menuItem.setChecked(true);
-                mDrawerLayout.closeDrawers();
-                return true;
-            }
-        });
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        int id = menuItem.getItemId();
+
+                        if (id == R.id.nav_friends) {
+                            Intent intent = new Intent(MainActivity.this, TabLayoutActivity.class);
+                            startActivity(intent);
+                        } else {
+                            menuItem.setChecked(true);
+                            mDrawerLayout.closeDrawers();
+                        }
+                        return true;
+                    }
+                });
     }
 
     static class Adapter extends FragmentPagerAdapter {
