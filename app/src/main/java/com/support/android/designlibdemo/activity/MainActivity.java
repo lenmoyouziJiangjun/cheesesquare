@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.support.android.designlibdemo;
+package com.support.android.designlibdemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,6 +35,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.support.android.designlibdemo.fragment.CheeseListFragment;
+import com.support.android.designlibdemo.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +46,7 @@ import java.util.List;
  */
 public class MainActivity extends AppCompatActivity {
 
-    //找到控件
+    //滑动控件
     private DrawerLayout mDrawerLayout;
 
     @Override
@@ -122,7 +125,10 @@ public class MainActivity extends AppCompatActivity {
                         if (id == R.id.nav_friends) {
                             Intent intent = new Intent(MainActivity.this, TabLayoutActivity.class);
                             startActivity(intent);
-                        } else {
+                        } else if(id == R.id.nav_discussion){
+                            Intent intent = new Intent(MainActivity.this, SlideMenuActivity.class);
+                            startActivity(intent);
+                        }else{
                             menuItem.setChecked(true);
                             mDrawerLayout.closeDrawers();
                         }

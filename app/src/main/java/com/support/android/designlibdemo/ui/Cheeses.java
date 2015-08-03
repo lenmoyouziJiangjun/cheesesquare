@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package com.support.android.designlibdemo;
+package com.support.android.designlibdemo.ui;
+
+import com.support.android.designlibdemo.R;
 
 import java.util.Random;
 

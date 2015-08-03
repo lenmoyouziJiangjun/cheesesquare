@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.support.android.designlibdemo;
+package com.support.android.designlibdemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,8 +26,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-
-import java.util.Random;
+import com.support.android.designlibdemo.ui.Cheeses;
+import com.support.android.designlibdemo.R;
 
 public class CheeseDetailActivity extends AppCompatActivity {
 

@@ -1,8 +1,10 @@
-package com.support.android.designlibdemo;
+package com.support.android.designlibdemo.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
+
+import com.support.android.designlibdemo.R;
 
 
 public class TabLayoutActivity extends AppCompatActivity {
